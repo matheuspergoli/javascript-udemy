@@ -1,0 +1,28 @@
+*, *::before, *::after {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 1rem;
+}
+
+input {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+button {
+    cursor: pointer;
+    padding: 2px 7px;
+    width: fit-content;
+}
