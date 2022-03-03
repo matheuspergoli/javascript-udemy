@@ -70,11 +70,36 @@ input {
   width: 100%;
   padding: 1rem;
   border-radius: 0px;
-  transition-duration: 100ms;
+  transition-duration: 150ms;
 }
 
 input:focus {
   outline: none;
-  border: 2px solid red;
   transform: scale(1.02);
+  border: 2px solid var(--primary-color);
+}
+
+button {
+  width: 100%;
+  padding: 1rem;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 0px;
+  border: 2px solid black;
+  transition-duration: 150ms;
+  background-color: var(--primary-color);
+}
+
+button:hover {
+  background-color: var(--primary-color-darker);
+}
+
+#resultado {
+  display: none;
+  padding: 1rem;
+  font-weight: bold;
+  background-color: cyan;
+  border: 2px solid black;
 }
