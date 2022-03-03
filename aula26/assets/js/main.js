@@ -14,14 +14,19 @@ function enviar() {
 
         const imc = peso / (altura * altura)
         
+        resultado.style.backgroundColor = 'cyan'
+
         if (peso <= 0 && altura <= 0) {
             resultado.innerHTML = `Dados inválidos!`
+            resultado.style.backgroundColor = 'red'
             return    
         } else if (peso < 30 || peso > 600 || isNaN(peso)) {
             resultado.innerHTML = `Peso inválido!`
+            resultado.style.backgroundColor = 'red'
             return
         } else if (altura > 2.10 || altura < 1.00 || isNaN(altura)) {
             resultado.innerHTML = `Altura inválida!`
+            resultado.style.backgroundColor = 'red'
             return
         } else if (imc <= 18.5) {
             resultado.innerHTML = `Seu IMC é ${imc.toFixed(1)} Abaixo do peso`

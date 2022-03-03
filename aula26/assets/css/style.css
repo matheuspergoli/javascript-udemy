@@ -31,8 +31,9 @@ main {
 
 section {
   display: flex;
-  gap: 15rem;
+  flex-wrap: wrap;
   margin-top: 3rem;
+  gap: clamp(5rem, 10vw, 15rem);
 }
 
 h1 {
