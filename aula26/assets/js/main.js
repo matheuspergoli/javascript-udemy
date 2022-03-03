@@ -1,45 +1,82 @@
-const btn = document.querySelector('button')
+const form = document.querySelector('form')
 
-btn.addEventListener('click', enviar)
-function enviar() {
-    const resultado = document.querySelector('#resultado')
-    const formulario = document.querySelector('form')
+form.addEventListener('submit', function (e) {
+    e.preventDefault()
 
-    formulario.addEventListener('submit', preventForm)
-    function preventForm(event) {
-        event.preventDefault()
+    const peso = Number(form.querySelector('#peso').value)
+    const altura = Number(form.querySelector('#altura').value)
 
-        const peso = Number(document.querySelector('#peso').value)
-        const altura = Number(document.querySelector('#altura').value)
+    if (!peso && !altura) {
+        setResultado('Dados inválidos!', false)
+        return
+    }
 
-        const imc = peso / (altura * altura)
-        
-        resultado.style.backgroundColor = 'cyan'
+    if (!peso || peso < 30 || peso > 500) {
+        setResultado('Peso inválido!', false)
+        return
+    }
 
-        if (peso <= 0 && altura <= 0) {
-            resultado.innerHTML = `Dados inválidos!`
-            resultado.style.backgroundColor = 'red'
-            return    
-        } else if (peso < 30 || peso > 600 || isNaN(peso)) {
-            resultado.innerHTML = `Peso inválido!`
-            resultado.style.backgroundColor = 'red'
-            return
-        } else if (altura > 2.10 || altura < 1.00 || isNaN(altura)) {
-            resultado.innerHTML = `Altura inválida!`
-            resultado.style.backgroundColor = 'red'
-            return
-        } else if (imc <= 18.5) {
-            resultado.innerHTML = `Seu IMC é ${imc.toFixed(1)} Abaixo do peso`
-        } else if (imc > 18.5 && imc <= 24.9) {
-            resultado.innerHTML = `Seu IMC é ${imc.toFixed(1)} Peso normal`
-        } else if (imc > 25 && imc <= 29.9) {
-            resultado.innerHTML = `Seu IMC é ${imc.toFixed(1)} Sobrepeso`
-        } else if (imc > 30 && imc <= 34.9) {
-            resultado.innerHTML = `Seu IMC é ${imc.toFixed(1)} Obesidade grau 1`
-        } else if (imc > 35 && imc <= 39.9) {
-            resultado.innerHTML = `Seu IMC é ${imc.toFixed(1)} Obesidade grau 2`
-        } else {
-            resultado.innerHTML = `Seu IMC é ${imc.toFixed(1)} Obesidade grau 3`
-        }
+    if (!altura || altura > 2.10 || altura < 1.40) {
+        setResultado('Altura inválida!', false)
+        return
+    }
+
+    const imc = getImc(peso, altura)
+    const nivel = getNivelImc(imc)
+
+    const msg = `Seu IMC é ${imc} (${nivel})`
+
+    setResultado(msg, true)
+})
+
+function criarP () {
+    const p = document.createElement('p')
+    return p
+}
+
+function setResultado (msg, isValid) {
+    const divResultado = form.querySelector('#div-resultado')
+    divResultado.innerHTML = ''
+    const p = criarP()
+    
+    if (!isValid) {
+        p.classList.add('bad')
+    }
+
+    p.innerHTML = msg
+    divResultado.appendChild(p)
+}
+
+function getImc (peso, altura) {
+    const imc = peso / altura ** 2
+    return imc.toFixed(2)
+}
+
+function getNivelImc (imc) {
+    const nivel = ['Abaixo do peso', 'Peso normal', 'Sobrepeso', 
+    'Obesidade grau 1', 'Obesidade grau 2', 'Obesidade grau 3']
+
+    if (imc < 18.5) {
+        return nivel[0]
+    }
+
+    if (imc <= 24.9) {
+        return nivel[1]
+    }
+
+    if (imc <= 29.9) {
+        return nivel[2]
+    }
+
+    if (imc <= 34.9) {
+        return nivel[3]
+    }
+
+    if (imc <= 39.9) {
+        return nivel[4]
+    }
+
+    if (imc > 40) {
+        return nivel[5]
     }
 }

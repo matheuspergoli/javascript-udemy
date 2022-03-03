@@ -97,9 +97,14 @@ button:hover {
   background-color: var(--primary-color-darker);
 }
 
-#resultado {
-  padding: 1rem;
+#div-resultado p {
+  padding: 10px;
+  margin-top: 15px;
   font-weight: bold;
   background-color: cyan;
   border: 2px solid black;
+}
+
+#div-resultado p.bad {
+  background-color: red;
 }
