@@ -97,7 +97,6 @@ button:hover {
 }
 
 #resultado {
-  display: none;
   padding: 1rem;
   font-weight: bold;
   background-color: cyan;
