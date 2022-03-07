@@ -1,18 +1,18 @@
-const pessoa1 = {
-    nome: 'Luiz',
-    sobrenome: 'Miranda',
-    idade: 25
-}
+// const pessoa1 = {
+//     nome: 'Luiz',
+//     sobrenome: 'Miranda',
+//     idade: 25
+// }
 
 console.log(pessoa1.nome)
 console.log(pessoa1.sobrenome)
 console.log(pessoa1.idade)
 
-const pessoa2 = {
-    nome: 'Maria',
-    sobrenome: 'Oliveira',
-    idade: 55
-}
+// const pessoa2 = {
+//     nome: 'Maria',
+//     sobrenome: 'Oliveira',
+//     idade: 55
+// }
 
 console.log(pessoa2.nome)
 console.log(pessoa2.sobrenome)
@@ -27,7 +27,7 @@ function criaPessoa(nome, sobrenome, idade) {
     }
 }
 
-const pessoa1 = criaPessoa('Matheus', 'Pergoli', 22)
+// const pessoa1 = criaPessoa('Matheus', 'Pergoli', 22)
 const pessoa2 = criaPessoa('Karla', 'Muniz', 33)
 const pessoa3 = criaPessoa('Sophia', 'Takagi', 15)
 const pessoa4 = criaPessoa('Adriano', 'Araujo', 35)
