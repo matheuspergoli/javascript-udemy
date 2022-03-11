@@ -4,15 +4,6 @@ function criaCalculadora() {
 
         inicia: function () {
             this.cliqueBotoes()
-            this.pressionaEnter()
-        },
-
-        pressionaEnter() {
-            this.diplay.addEventListener('keyup', (event) => {
-                if (event.keyCode === 13) {
-                    this.realizaConta()
-                }
-            })
         },
 
         realizaConta() {
